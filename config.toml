@@ -1,4 +1,20 @@
-baseURL = "http://hugo.test/"
+baseURL = "https://romantic-hypatia-863a98.netlify.com/"
 languageCode = "en-us"
 title = "Hugo Test Site"
-theme = "ananke"
+theme = "ink"
+
+# Enable syntax highlighting.
+pygmentsstyle = "solarized-dark"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+[markup]
+  [markup.highlight]
+    codeFences = true
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4
