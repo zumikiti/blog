@@ -3,8 +3,6 @@ languageCode = "ja-jp"
 title = "zumikiti note"
 theme = "ink"
 
-publishDir = "docs"
-
 copyright = "© Copyright notice"
 
 # Enable syntax highlighting.
