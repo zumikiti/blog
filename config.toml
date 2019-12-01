@@ -1,87 +1,57 @@
-baseURL = "http://example.org/"
+baseURL = "https://zumikiti-note.netlify.com/"
 languageCode = "ja-jp"
 title = "zumikiti note"
-theme = "ink"
+theme = "pulp"
+canonifyurls = true
+hasCJKLanguage = true
+# pygmentsCodefences = true
+# pygmentsUseClasses = true
+# googleAnalytics = "{your tracking code}"
 
-copyright = "© Copyright notice"
-
-# Enable syntax highlighting.
-pygmentsstyle = "solarized-dark"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-
-# Your Google analytics code.
-# googleAnalytics = "UA-123-45"
-# Your Disqus sortname.
-disqusShortname = "localhost"
-
-# Number of posts to show in recent posts list (Optional). Defaults to 10.
-paginate = 5
+[taxonomies]
+  series = "series"
 
 [params]
-    # Blog subtitle which appears below blog title. Supports markdown.
-    subtitle = "気ままな備忘録"
+    author = "zumikiti"
+    avatar = "ribon.jpg"
+    favicon = "ribon.ico"
+    description = """
+        このブログは、気ままに備忘録を書いていくブログです。
+        もし、お仕事のご依頼がございましたら、ご連絡ください。
+    """
+    publicationYear = "2019"
+    # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
+    # singlePageDateFormat = "January 2, 2006"
+    # custom_css = ["/css/custom.css"]
+    # custom_js = ["/js/custom.js"]
 
-    # Content types which are included in home page recent posts list.
-    mainSections = ["posts"]
-
-    # Content types which are excludes Disqus comments.
-    disableDisqusTypes = ["page"]
-
-    # If social media links are enabled then enable this to fetch icons from CDN instead of hosted on your site.
-    featherIconsCDN = true
-
-    # Specify favicon (icons/i.png maps to static/icons/i.png). No favicon if not defined.
-    favicon = "https://avatars1.githubusercontent.com/u/30865360?s=400&u=30bbca046fe75cb0f69eb686e5d8694d8c50a1fa&v=4"
-
-    # Switch to dark mode or auto detect mode from OS (Optional).
-    # "dark" will set mode to dark and "auto" will switch to dark mode if OS is in dark mode.
-    mode = "dark" # "dark" or "auto"
-
-    # Custom CSS added to default styles. Files added to `static` folder is copied as it is to
-    # root by Hugo. For example if you have custom CSS file under `static/css/custom.css` then
-    # you can specify custom css path as `css/custom.css`.
-    # customCSS = "css/custom.css"
-    # Custom CSS added to dark mode style.
-    # customDarkCSS = "css/custom-dark.css"
-
-    # Custom list of Javascript files to load. Just like custom CSS you can place js files under
-    # `static/js` folder and specify path here as `js/script-name.js`.
-    # customJS = ["js/abc.js", "js/xyz.js"]
-
-# Main menu which appears below site header.
-[[menu.main]]
-name = "Home"
-url = "/"
-weight = 1
+[outputs]
+    section = ["JSON", "HTML"]
 
 [[menu.main]]
-name = "All posts"
-url = "/posts"
-weight = 2
+    identifier = "blog"
+    # name = "Blog" #If display text link, cancel comment out
+    pre = "<i class='fa fa-book-open fa-lg'></i>" #Choose your favorite font from Font Awesome
+    url = "/posts/"
+    weight = 10
 
 [[menu.main]]
-name = "About"
-url = "/about"
-weight = 3
+    identifier = "twitter"
+    # name = "Twitter"
+    pre = "<i class='fab fa-twitter fa-lg'></i>"
+    url = "https://twitter.com/hanlio"
+    weight = 20
 
 [[menu.main]]
-name = "Tags"
-url = "/tags"
-weight = 4
+    identifier = "github"
+    # name = "GitHub"
+    pre = "<i class='fab fa-github fa-lg'></i>"
+    url = "https://github.com/zumikiti"
+    weight = 30
 
-# Social media links which shows up on site header.
-# Uses feather icons for icons. You can [search icon names from here](https://feathericons.com/).
-[[params.social]]
-name = "Github"
-icon = "github"
-url = "https://github.com/zumikiti"
-
-[[params.social]]
-name = "Twitter"
-icon = "twitter"
-url = "https://twitter.com/hanlio"
-
-# Enable tags.
-[taxonomies]
-   tag = "tags"
+# [[menu.main]]
+#     identifier = "email"
+#     # name = "Email"
+#     pre = "<i class='fa fa-envelope fa-lg'></i>"
+#     url = "mailto:username@example.com"
+#     weight = 40
