@@ -1,7 +1,7 @@
 baseURL = "http://example.org/"
 languageCode = "ja-jp"
 title = "zumikiti note"
-theme = "ink"
+theme = "hugo-ink"
 
 copyright = "© Copyright notice"
 
