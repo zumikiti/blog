@@ -3,10 +3,7 @@ title: "HUGO を Netlify へデプロイする"
 date: 2019-11-28T19:20:10+09:00
 draft: fales
 tag: [hugo, netlify, golang]
-disqus: false
 ---
-
-[[ top ]]
 
 ## HUGO をインストール
 ```sh
@@ -15,7 +12,8 @@ disqus: false
 ```
 
 ## プロジェクトを作る
-```sh
+
+{{< highlight shell >}}
 ▶ hugo new site blog
 Congratulations! Your new Hugo site is created in /Users/teke/Cord/blog.
 
@@ -29,7 +27,8 @@ Just a few more steps and you're ready to go:
 3. Start the built-in live server via "hugo server".
 
 Visit https://gohugo.io/ for quickstart guide and full documentation.
-```
+{{< /highlight >}}
+
 
 これで以下ディレクトリが作成される。
 ```

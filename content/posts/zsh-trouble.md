@@ -28,15 +28,21 @@ golangconfig.EnvVarError: The following environment variable is currently unset:
 `GOPATH` を `~/.zprofile` に設定する必要がある。
 
 {{< highlight shell >}}
-$ which go
-/usr/local/go/bin/go
-
-$ vi ~/.zprofile
+$ cp ~/.bash_profile ~/.zprofile
 {{</ highlight >}}
 
+そんで `.zprofile` から不要そうなものを削除する。
+私の設定はこうなっている。
+
 {{< highlight shell >}}
-# ~/.zprofile
-export GOPATH=/usr/local/go/bin/go
+export PATH=$PATH:/usr/local
+export PATH=$PATH:/usr/local/mysql/bin
+export PGDATA=/usr/local/var/postgres
+
+# !/usr/bin/env -S PATH="${PATH}:/usr/local/bin" python3
+export PATH=${PATH}:/usr/bin/python3
+export PATH=${PATH}:/usr/bin/go
+export PATH=${PATH}:$HOME/.composer/vendor/bin
 {{</ highlight >}}
 
 ## 参考
