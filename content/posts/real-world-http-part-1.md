@@ -1,7 +1,7 @@
 ---
 title: "Real World Httpを読んだので、まとめ（第1章）"
 date: 2019-12-10T06:31:54+09:00
-draft: true
+tags: [go, golang, http, 書評, server]
 ---
 
 ## 1章
