@@ -1,6 +1,7 @@
 ---
 title: "Real World Http を読んだのでそのまとめ（第2章）"
-date: 2019-12-29T15:24:20+09:00
+date: 2020-02-17T15:24:20+09:00
+tags: [http, go]
 draft: true
 ---
 
