@@ -27,6 +27,12 @@ UrlFetchApp.fetch(
 );
 ```
 
+## IFTTT で送る
+- URL: Webhook の URL
+- Method: POST
+- Content Type(optional): application/json
+- Body(optional): {"text": "Hellow, World!"}
+
 ## メンションがつけられない
 今の時点では、メンションをつける方法がサポートされていない様子。  
 `<at>user</at>`,  `<at>user@microsoft.com`, `@user` と色々試してみたがダメだった。
