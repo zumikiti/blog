@@ -54,3 +54,7 @@ $ git rebase -i HAED~3
 ```
 
 vimが開いたら、単純にコミットの順番を入れ替えて保存すれば良い。
+
+## 参考サイト
+- https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#rebase
+- https://www.granfairs.com/blog/staff/git-commit-fix
