@@ -8,9 +8,6 @@ hasCJKLanguage = true
 # pygmentsUseClasses = true
 # googleAnalytics = "{your tracking code}"
 
-[taxonomies]
-  series = "series"
-
 [params]
     author = "zumikiti"
     avatar = "ribon.jpg"
@@ -27,6 +24,7 @@ hasCJKLanguage = true
 
 [outputs]
     section = ["JSON", "HTML"]
+    taxonomy = ["JSON", "HTML"] 
 
 [[menu.main]]
     identifier = "blog"
