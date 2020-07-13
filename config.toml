@@ -6,7 +6,7 @@ canonifyurls = true
 hasCJKLanguage = true
 # pygmentsCodefences = true
 # pygmentsUseClasses = true
-# googleAnalytics = "{your tracking code}"
+googleAnalytics = "UA-126185333-2"
 
 [params]
     author = "zumikiti"
