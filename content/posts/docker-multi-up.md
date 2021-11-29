@@ -3,12 +3,21 @@ title: "複数のプロジェクトで Docker を使用する場合の個人的�
 date: 2021-11-26T14:01:02+09:00
 ---
 
-社内でDockerを利用したプロジェクトが増えてきて、ポートの競合問題やコンテナが多すぎて重いなどの問題があり、ひとまず個人的なペストプラクティスを書く。
+社内でDockerを利用したプロジェクトが増えてきて、ポートの競合問題やコンテナが多すぎて重いなどの問題があり、「ひとまず現状これがベストかな？」と思える設定に落ち着いたので、それを書く。
 
 ## 概要
-- DB や mailhog などの共通で利用できるコンテナは共通化する
+- DB や mailhog などの共通で利用できるコンテナは共通化し、DBなどのポート競合や起動コンテナを減らす
 - `nginx-proxy` でリバースプロキシして web のポート競合も回避する
 - `laravel` のプロジェクトでしか私は使用していないが、汎用性はあると思う
+
+
+## 注意
+DBを共有にするため、プロジェクト毎にDBのバージョンを分けたい場合には対応できない。
+
+そういった場合は、  
+律儀に、ポート番号が被らないように各プロジェクトで設定するか  
+ループバックアドレスをプロジェクト毎に割り当てるか (https://qiita.com/hanlio/items/243006a67fb8d535d958)  
+で対応が可能です。
 
 ## ディレクトリ構成
 ```
@@ -25,11 +34,10 @@ date: 2021-11-26T14:01:02+09:00
 ```
 
 ## 共通コンテナの設定
-adwin さんが公開してくれているリポジトリに `nginx-proxy` を追加いただけ。
+adwin さんが公開してくれているリポジトリに `nginx-proxy` を追加いただけ。  
 https://github.com/adwinying/webdev
 
 ### docker-compose.yaml
-- 共通化することで、ポート競合を回避する
 - `docker-compose -d pgsql mailhog proxy` と必要なコンテナのみ起動する
 - ダンプファイルなどがあれば、`dump` ディレクトリを作成して、そこにダンプファイルを格納する
 
@@ -141,11 +149,11 @@ volumes:
 ```
 
 ## プロジェクト毎の設定
-共通コンテナを立ち上げた後、プロジェクト毎で立ち上げる必要があるのは、web のコンテナだけになる。
+共通コンテナを立ち上げた後、プロジェクト毎では web のコンテナだけ起動すれば良い
 
 ### docker-compose.yaml
 - ports は 80 だけ指定すれば、コンテナ側のポートは適当に割り当ててくれる
-- environment に VIRTUAL_HOST を設定することで、`http://laravel.test` などで、nginx-proxy がよしなにしてくれる
+- environment に VIRTUAL_HOST を設定することで、`http://laravel.test` にアクセスした際、nginx-proxy がよしなにしてくれる
 - 共通コンテナと同一ネットワークに所属する必要があるので、 `networks` に `webdev` を指定している
 
 ```yaml
@@ -174,13 +182,22 @@ networks:
     name: webdev
 ```
 
+### hosts ファイル
+hostsファイルに、 VIRTUAL_HOST の値を追記。
+
+```
+127.0.0.1 laravel.test
+```
+
 ## おまけ
 少しズレるが、`docker-compose` コマンドが長すぎるので、Taskfile の設定も置いておきます。  
 
 **使用手順**
+
 1. `docker-compose.yaml` と同一階層に置く
-2. `chmod 755 ./Taskfile`
-3. `alias task=./Taskfile` と設定する
+2. `chmod 755 ./Taskfile` で権限を変更する
+3. `alias task=./Taskfile` などとエイリアスを設定する
+
 これで準備完了です。
 
 `task artisan migrate` などで実行できるので便利！
