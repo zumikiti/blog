@@ -4,9 +4,6 @@ title = "zumikiti note"
 theme = "pulp"
 canonifyurls = true
 hasCJKLanguage = true
-# pygmentsCodefences = true
-# pygmentsUseClasses = true
-googleAnalytics = "UA-126185333-2"
 
 [params]
     author = "zumikiti"
@@ -17,14 +14,9 @@ googleAnalytics = "UA-126185333-2"
         もし、お仕事のご依頼がございましたら、ご連絡ください。
     """
     publicationYear = "2019"
-    # listPageDateFormat = "January, 2006" # See https://gohugo.io/functions/format/
-    # singlePageDateFormat = "January 2, 2006"
-    # custom_css = ["/css/custom.css"]
-    # custom_js = ["/js/custom.js"]
 
 [outputs]
     section = ["JSON", "HTML"]
-    taxonomy = ["JSON", "HTML"] 
 
 [[menu.main]]
     identifier = "blog"
