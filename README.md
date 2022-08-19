@@ -2,3 +2,15 @@
 HUGO + Netlify で作ったブログ。
 
 https://zumikiti-note.netlify.com/
+
+## Installation
+
+```sh
+brew install hugo
+
+git submodule update --init --recursive
+
+hugo new posts/new-post.md
+
+hugo server -D
+```
