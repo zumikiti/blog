@@ -106,9 +106,9 @@ class CreateItemTest extends TestCaseWithDb
         $cdType = $reflection->getProperty('cdType');
         $cdType->setAccessible(true);
 
-        $mun = mt_rand();
-        $expected = $cdType->getValue($create) . $mun;
-        $result = $generateItemCd->invoke($create, $mun);
+        $num = mt_rand();
+        $expected = $cdType->getValue($create) . $num;
+        $result = $generateItemCd->invoke($create, $num);
         $this->assertSame($expected, $result);
     }
 }
