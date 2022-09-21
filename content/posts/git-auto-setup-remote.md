@@ -11,10 +11,10 @@ https://dev.to/this-is-learning/this-new-git-push-config-will-save-you-lot-of-fr
 現状だとプッシュ時に、リモートブランチを作成する場合、 `--set-upstream` オプションを求められる。これが不要になる。
 ```sh
 $ git push
-fatal: The current branch strime has no upstream branch.
+fatal: The current branch dev-branch has no upstream branch.
 To push the current branch and set the remote as upstream, use
 
-    git push --set-upstream origin strime
+    git push --set-upstream origin dev-branch
 ```
 
 ## 設定方法
