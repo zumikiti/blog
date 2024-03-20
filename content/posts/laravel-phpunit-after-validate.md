@@ -54,8 +54,11 @@ class UserFrom extends FormRequest
 
 class UserFormTest extends TestCase
 {
+    private $request;
+
     public function roles()
     {
+        // after フックを起動させるためにリクエストをモックする必要がある
         $this->request = new UserFrom();
         $this->request->setRouteResolver(function() {
             $mock = Mockery::mock('Illuminate\Routing\Route')
@@ -78,7 +81,9 @@ class UserFormTest extends TestCase
             'last_name' => Str::random(25),
         ];
 
+        // input の値を置き換え
         $input = array_replace($baseInput, $input);
+        // input のキーから指定のキーを抜く
         $input = Arr::except($input, $exceptKey);
 
         return $input;
@@ -92,8 +97,10 @@ class UserFormTest extends TestCase
         $rules = $this->rules();
         $input = $this->makeInput(...$inputs);
 
+        // モックした rules をセット
         $validator = Validator::make($input, $rules);
         $this->request->merge($input);
+        // withValidator() に $validator を渡すことで after フックを単体テストで実行できる
         $this->request->withValidator($validator);
 
         $result = $validator->passes();
@@ -103,6 +110,14 @@ class UserFormTest extends TestCase
     public function formData()
     {
         return [
+            'all OK' => [
+                true,
+            ],
+            'first_name が存在しない' => [
+                false,
+                [],
+                'first_name',
+            ],
             'ユーザー名が51文字' => [
                 false,
                 [
@@ -112,4 +127,18 @@ class UserFormTest extends TestCase
         ];
     }
 }
+```
+
+なお、編集などで URI にパラメータが必要な場合は、request の生成時に以下の用に parameter() をセットすれば良い。
+
+```php
+<?php
+
+$user = UserFactory::new()->create();
+
+$mock = Mockery::mock('Illuminate\Routing\Route')
+    ->shouldReceive('parameter')
+    ->parameter('user', $user) // ここ
+    ->andReturn()
+    ->getMock();
 ```
