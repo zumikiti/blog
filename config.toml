@@ -1,7 +1,7 @@
 baseURL = "https://zumikiti-note.netlify.com/"
 languageCode = "ja-jp"
 title = "zumikiti note"
-theme = "pulp"
+theme = "my-pulp"
 canonifyurls = true
 hasCJKLanguage = true
 
@@ -38,10 +38,3 @@ hasCJKLanguage = true
     pre = "<i class='fab fa-github fa-lg'></i>"
     url = "https://github.com/zumikiti"
     weight = 30
-
-# [[menu.main]]
-#     identifier = "email"
-#     # name = "Email"
-#     pre = "<i class='fa fa-envelope fa-lg'></i>"
-#     url = "mailto:username@example.com"
-#     weight = 40
