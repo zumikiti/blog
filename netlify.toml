@@ -1,7 +1,7 @@
 [build.environment]
-HUGO_VERSION = "$HUGO_VERSION"
+HUGO_VERSION = "0.126.1"
 TZ = "Asia/Tokyo"
 
 [build]
 publish = "public"
-command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+command = "hugo --gc --minify"
