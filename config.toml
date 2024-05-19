@@ -1,4 +1,4 @@
-baseURL = "https://zumikiti-note.netlify.com/"
+baseURL = "https://zumikiti-note.netlify.app/"
 languageCode = "ja-jp"
 title = "zumikiti note"
 theme = "my-pulp"
