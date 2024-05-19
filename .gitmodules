@@ -1,0 +1,3 @@
+[submodule "themes/my-pulp"]
+	path = themes/my-pulp
+	url = https://github.com/zumikiti/pulp.git
