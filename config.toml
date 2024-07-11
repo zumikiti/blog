@@ -10,8 +10,7 @@ hasCJKLanguage = true
     avatar = "ribon.jpg"
     favicon = "ribon.ico"
     description = """
-        このブログは、気ままに備忘録を書いていくブログです。
-        もし、お仕事のご依頼がございましたら、ご連絡ください。
+        気ままに備忘録を書いていくブログです。
     """
     publicationYear = "2019"
 
