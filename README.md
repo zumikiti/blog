@@ -7,7 +7,13 @@ https://zumikiti-note.netlify.com/
 
 ```sh
 brew install hugo
+```
+or
+```sh
+devbox shell
+```
 
+```sh
 git submodule update --init --recursive
 
 hugo new posts/new-post.md
