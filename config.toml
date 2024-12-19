@@ -25,6 +25,12 @@ hasCJKLanguage = true
     weight = 10
 
 [[menu.main]]
+    identifier = "linkedin"
+    pre = "<i class='fab fa-linkedin fa-lg'></i>"
+    url = "https://www.linkedin.com/in/ahigashiizumi/"
+    weight = 20
+
+[[menu.main]]
     identifier = "twitter"
     # name = "Twitter"
     pre = "<i class='fab fa-twitter fa-lg'></i>"
